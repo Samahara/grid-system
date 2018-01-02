@@ -1,59 +1,69 @@
+/*para que todo quede adentro del container uso box-sizing*/
 * {
   box-sizing: border-box;
+}
+
+body {
   margin: 0;
   padding: 0;
 }
 
-#container {
-  margin: 0 auto;
-  max-width: 1000px;
-  width: 100%;
+.container {
+  margin: 0 auto; /*para centrar el contenido.*/
+  max-width: 1200px; /*defino ambos width en pocentaje y pixéles*/
+  width: 100%; /*ó 1200px para hacerlo fijo.*/
 }
 
-.column-1 {
-  background-color: #D126A9;
-  display: inline-grid;
-  height: 30px;
-  width: 100%;
-}
-
-.column-2 {
-  background-color: #9C42D1;
-  display: inline-grid;
-  height: 30px;
-  width: 49.8%;
-}
-
-.column-3 {
-  background-color: #01B6AD;
-  display: inline-grid;
-  height: 30px;
-  width: 33.09%;
-}
-
-.column-4 {
-  background-color: #1EE2A6;
-  display: inline-grid;
-  height: 30px;
-  width: 24.72%;
-}
-
-.column-6 {
-  background-color: #AFFF00;
-  display: inline-grid;
-  height: 30px;
-  width: 16.36%;
-}
-
-.column-12 {
-  background-color: #FFFF00;
-  display: inline-grid;
-  height: 30px;
-  width: 7.99%;
-}
-
-.row::before, .row::after {
-  content: "";
+/*Un content con espacio vacío que se agregue
+al inicio y al final de las filas*/
+.row::before,
+.row::after {
+  content: " ";
   display: table;
+}
+
+.row::after {
   clear: both;
+}
+
+/*Ya comienza el uso de pseudoselectores*/
+[class*="col-"] {
+  border: 3px solid white; /*se le agrega el borde y va a respetar el porcentaje total*/
+  min-height: 7px; /*tamaño estandar es 7px*/
+  float: left;
+  padding: 12px; /*espacio de los gutters*/
+}
+
+.col-1 {
+  background-color: #D126A9;
+  width: 8.33%;
+}
+
+.col-2 {
+  background-color: #9C42D1;
+  width: 16.66%;
+}
+
+.col-3 {
+  background-color: #01B6AD;
+  width: 25%;
+}
+
+.col-4 {
+  background-color: #1EE2A6;
+  width: 33.33%;
+}
+
+.col-5 {
+  width: 41.66%;
+}
+
+.col-6 {
+  background-color: #AFFF00;
+  width: 50%;
+}
+
+.col-12 {
+  background-color: #FFFF00;
+  width: 100%;
 }
